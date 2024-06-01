@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net462;netcoreapp3.0</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <Authors>PolarGoose</Authors>
+    <Description>A WPF control that renders the Graphviz graphs described in the Dot language. The control allows the creation of interactive graphs by adding mouse-click events, tooltips, and more.</Description>
+    <PackageProjectUrl>https://github.com/PolarGoose/GraphvizWpf</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PolarGoose/GraphvizWpf</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Graphviz; dot; graph</PackageTags>
+    <PackageOutputPath>$(BuildFolder)</PackageOutputPath>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Test" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\doc\Screenshot.png">
+      <Pack>True</Pack>
+      <PackagePath>\doc</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

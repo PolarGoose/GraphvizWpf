@@ -1,0 +1,192 @@
+# -*- graphviz-dot -*-
+digraph FP
+{
+	graph[ranksep=1.5,
+	      ratio="expand",
+	      concentrate=false,
+	      rank=new,
+	      constraint=true,
+	      label="The LISP family",
+	      labelloc=t,
+	      splines=true];
+
+	// Entry and exit nodes from/into other languages are doublecircle formatted.
+	// Dotted lines represent minor changes from one to another (e.g. renaming).
+	// Dashed lines represent an implementation language relationship.
+	// Note shapes mean that the language was described in a paper and didn't have a released implementation.
+	// Component shapes mean that one is a subsystem of the other (e.g. CL -> CLOS)
+	// Any changes should render on http://www.webgraphviz.com
+	// A great lang reference at http://hopl.info/home.prx
+	// Another at http://www.softwarepreservation.org/projects/LISP/
+
+	// The MIT AI Languages
+	"LISP" -> "LISP 1.5";
+	"LISP" -> "METEOR";           // Bobrow, 1964
+	"LISP" -> "CONVERT";          // Guzman, 1965
+	"LISP 1.5" -> "PLANNER";      // Hewitt, 1969
+	"LISP 1.5" -> "MDL (Muddle)"; // Sussman and Hewitt, 1970
+	"LISP 1.5" -> "MICROPLANNER"; // Sussman, 1971
+	"MICROPLANNER" -> "CONNIVER"; // Sussman, 1972
+	"PLASMA" -> "ACTOR";          // Hewitt, 1973
+	"LISP 1.5" -> "SCHEMER";      // Sussman and Steele, 1975
+	"CONNIVER" -> "SCHEMER";
+	"PLASMA" -> "SCHEMER";
+	
+	"IPL" -> "LISP";
+	"IPL" [shape = doublecircle];
+	"Church typed \n lambda calculus" -> "LISP";
+	"Church typed \n lambda calculus" [shape = doublecircle];
+	"ALGOL" -> "LISP";
+	"ALGOL" [shape = doublecircle];
+	"LISP 1.5" -> "InterLisp";
+	"LISP 1.5" -> "Linear LISP";
+	"Linear LISP" -> "TREET";
+	"Linear LISP" [shape=note];
+	"LISP 1.5" -> "Atlas Lisp";
+	"LISP 1.5" -> "LISP 1.55"; // Boston branch
+	"LISP 1.55" -> "LISP 1.56"; // Stanford branch
+	"LISP 1.56" -> "Lisp 1.6 \n (Stanford Lisp)";
+	"LISP 1.56" -> "Lisp 1.6 \n (Imperial College)" 
+	"LISP 1.5" -> "MacLisp";
+	"LISP 1.5" -> "Basic PDP-1 LISP";
+	"LISP 1.5" -> "EMIDEC\nLISP" [style=dotted];
+	"LISP 1.5" -> "MLISP";  // JMC's M-expression LISP
+	"LISP 1.5" -> "The New\nLanguage";	
+	"LISP 1.5" -> "GM"; // Graham Machine
+	"PLANNER" -> "QLISP";
+	"PLANNER" -> "MICROPLANNER";
+	"LISP 1.5" -> "LISP A";
+	"COMIT" -> "The New\nLanguage";
+	"COMIT" [shape = doublecircle];
+	"The New\nLanguage" -> "LISP 2";
+	"The New\nLanguage" [shape=note];
+	"LISP A" [shape=note];
+	"GM" [shape=note];
+	"ALGOL" -> "LISP 2";
+	"LISP 2" -> "GTL";
+	"MacLisp" -> "Lisp Machine Lisp";
+	"MacLisp" -> "Bibop (MIT)";
+	"MacLisp" -> "Lisp 1.6 \n (Stanford Lisp)";
+	"Lisp 1.6 \n (Stanford Lisp)" -> "UCI Lisp";
+	"Basic PDP-1 LISP" -> "BBN-Lisp";
+	"Basic PDP-1 LISP" -> "PDP-6 Lisp";
+	"LISP 1.5" -> "PDP-6 Lisp" -> "MacLisp";
+	"BBN-Lisp" -> "UCI Lisp";
+	"BBN-Lisp" -> "InterLisp";
+	"BBN-Lisp" -> "ByteLisp" -> "InterLisp";
+	"InterLisp" -> "Lisp Machine Lisp";
+	"InterLisp" -> "InterLisp-D";
+	"InterLisp-D" -> "InterLisp-VAX";
+	"Lisp Machine Lisp" -> "Zetalisp" [style=dotted];
+	"Lisp Machine Lisp" -> "LMI Lisp";
+	"Zetalisp" -> "Common Lisp";
+	"Zetalisp" -> "Flavors" [style=dashed];
+	"LMI Lisp" -> "Common Lisp";
+
+	// Scheme
+	"ALGOL" -> "SCHEMER" [ label="ALGOL 60" ];
+	"SCHEMER" -> "SCHEME";
+	"ACTOR"  -> "SCHEME";
+	"ACTOR" [shape = doublecircle];
+	"SCHEME" -> "R1RS";
+	"SCHEME" -> "R2RS";	
+	"SCHEME" -> "R3RS";	
+	"SCHEME" -> "R4RS";	
+	"SCHEME" -> "R5RS";	
+	"SCHEME" -> "R6RS";	
+	"SCHEME" -> "R7RS-small";	
+	"SCHEME" -> "R7RS-large";
+
+	"R4RS" -> "RScheme";
+	"R5RS" -> "RScheme";
+	"Dylan" -> "RScheme";
+
+	"RScheme" -> "Black";
+	"3-LISP" -> "Black";
+
+	"R1RS" -> "Scheme 84";
+	"Scheme 84" -> "Scheme 48";
+	"R5RS" -> "Scheme 48";
+	
+	"MacLisp" -> "SCHEME";
+	"SCHEME" -> "MultiLisp";
+	"MDL (Muddle)" -> "Cromemco Lisp";
+	"MDL (Muddle)" -> "ZIL";
+	"MDL (Muddle)" -> "CLU" [style=dashed];
+	"CLU" [shape = doublecircle];
+	"MDL (Muddle)" [shape = doublecircle];
+	"Bibop (MIT)" -> "Cromemco Lisp";
+	"LISP 1.5" -> "XLISP" -> "AutoLisp" -> "Vital-Lisp";
+	"XLISP" -> "Fugue";
+	"XLISP" -> "XLISP-PLUS";
+	"Fugue" [shape = note];
+	"Vital-Lisp" -> "Visual Lisp";
+	"Common Lisp" -> "XLISP" -> "XLISP 3";
+	"XLISP" -> "XLISP-STAT";
+	"SCHEME" -> "XLISP 3";
+	"SCHEME" -> "APROL";
+	"J" -> "APROL";
+	"J" [shape = doublecircle];
+	"APROL" [shape = note];
+	"MacLisp" -> "Emacs Lisp";
+	"MacLisp" -> "NIL" -> "Common Lisp" -> "Dylan";
+	"Self" -> "Dylan";
+	"Smalltalk" -> "Dylan";
+	"Dylan" -> "Brenda";
+	"Self" [shape = doublecircle];
+	"Smalltalk" [shape = doublecircle];
+	"NIL" -> "T";
+	"SCHEME" -> "T";
+	"T" -> "EuLisp" -> "ISLISP" -> "OpenLisp";
+	"T" -> "RABBIT";
+	"SCHEME" -> "Kawa";
+	"SCHEME" -> "newLISP";
+	"SCHEME" -> "XSCHEME" -> "SXM";
+	"LISP 1.5" -> "Logo";
+	"LISP 1.5" -> "GOL";
+	"LISP 1.5" -> "Kernel";
+	"SCHEME" -> "Kernel";
+	"Kernel" [shape = note];
+	"Logo" [shape = doublecircle];
+	"MacLisp" -> "Franz Lisp" -> "Allegro Common Lisp";
+	"LISP 1.5" -> "SCHEME" -> "T";
+	"LISP 1.5" -> "PicoLisp";
+	"Erlang" -> "Lisp Flavoured Erlang";
+	"Erlang" [shape = doublecircle];
+	"MacLisp" -> "Lisp Flavoured Erlang";
+	"LISP 1.5" -> "2-LISP" -> "3-LISP";
+	"LISP 1.5" -> "LISP F1";
+	"LISP F1" -> "LISP F3";
+	"InterLisp" -> "LISP F3";
+	"SCHEME" -> "Racket" -> "Arc";
+	"Racket" -> "Typed Racket" -> "Hackett";
+	"Racket" -> "Lazy Racket" -> "Hackett";
+	"Common Lisp" -> "Clojure";
+	"SCHEME" -> "Clojure";
+	"ML" -> "Clojure";
+	"ML" [shape = doublecircle];
+	"Java" -> "Clojure";
+	"Java" -> "ABCL";
+	"Common Lisp" -> "ABCL";
+	"Java" [shape = doublecircle];
+	"Clojure" -> "Carp";
+	"Clojure" -> "Hy";
+	"Python" -> "Hy";
+	"Python" [shape = doublecircle];
+	"MacLisp" -> "Le Lisp" -> "EuLisp";
+	"SCHEME" -> "EuLisp";
+	"SCHEME" -> "Oaklisp" -> "TELOS";
+	"Common Lisp" -> "CLOS";
+	"CLOS" [shape=component];
+	"CLOS" -> "TELOS";
+	"Oaklisp" -> "TELOS";
+	"Le Lisp" -> "ISLISP";
+	"Common Lisp" -> "EuLisp" -> "Dylan";
+	"EuLisp" -> "youtoo";
+	"EuLisp" -> "ELLIS";
+	"EuLisp" -> "TELOS";
+	"TELOS" [shape=component];
+	"Linda" -> "ELLIS";
+	"Linda" [shape = doublecircle];
+	"EuLisp" -> "Euscheme";
+}
