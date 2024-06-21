@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GraphvizWpf\GraphvizWpf.csproj" />
+    <PackageReference Include="SharpVectors" Version="1.8.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharpVectors" Version="1.8.4" />
+    <ProjectReference Include="..\GraphvizWpf\GraphvizWpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>
